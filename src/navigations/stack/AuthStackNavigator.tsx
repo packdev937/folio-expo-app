@@ -4,11 +4,13 @@ import {authNavigations} from "../../constants";
 import SignupScreen from "../../screens/auth/SignupScreen";
 import {createStackNavigator} from "@react-navigation/stack";
 import {BottomSheetModalProvider} from "@gorhom/bottom-sheet";
+import TermOfServiceScreen from "../../screens/auth/TermOfServiceScreen";
 
 export type AuthStackParamList = {
   [authNavigations.AUTH_HOME]: undefined;
   [authNavigations.LOGIN]: undefined;
   [authNavigations.SIGNUP]: undefined;
+  [authNavigations.TERM]: undefined;
 }
 const Stack = createStackNavigator<AuthStackParamList>()
 
@@ -22,6 +24,12 @@ function AuthStackNavigator() {
           headerTitle: '회원가입'
         }}
         />
+        <Stack.Screen
+          name={authNavigations.TERM}
+          component={TermOfServiceScreen}
+          options={{
+            headerTitle: '서비스 이용약관'
+          }}/>
       </Stack.Navigator>
     </BottomSheetModalProvider>
   )

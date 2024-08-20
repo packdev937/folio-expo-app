@@ -3,6 +3,7 @@ const authNavigations = {
   LOGIN: 'Login',
   SIGNUP: 'Signup',
   APPLE: 'Apple',
+  TERM: 'Term',
 } as const;
 
 export {

@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react'
-import {Platform, Pressable, SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native'
+import {Pressable, SafeAreaView, StyleSheet, Text, View} from 'react-native'
 import InputField from "../../components/common/InputField";
 import RNDateTimePicker from "@react-native-community/datetimepicker";
 import useForm from "../../hooks/useForm";
@@ -7,7 +7,7 @@ import {validateSignup} from "../../utils";
 import CustomButton from "../../components/common/CustomButton";
 import {BottomSheetModal} from "@gorhom/bottom-sheet";
 import {Checkbox} from "expo-checkbox";
-import {colors} from "../../constants";
+import {authNavigations, colors} from "../../constants";
 
 function SignupScreen({navigation}) {
   const [allAgreed, setAllAgreed] = useState(false);
@@ -120,7 +120,7 @@ function SignupScreen({navigation}) {
         <View style={styles.termContainer}>
           <View style={styles.termInfo}>
             <Text style={styles.termInfoHeaderText}>서비스 이용 약관에 대한 동의가 필요합니다.</Text>
-            <Text style={styles.termInfoText}>해당 항목에 동의하지 않으실 경우, {`\n`} 서비스 이용에 제한이 있을 수
+            <Text style={styles.termInfoText}>해당 항목에 동의하지 않으실 경우, {`\n`}서비스 이용에 제한이 있을 수
               있습니다.</Text>
           </View>
           <View style={styles.termItemContainer}>
@@ -140,7 +140,14 @@ function SignupScreen({navigation}) {
               <Checkbox value={termsAgreed.privacy} onValueChange={() => handleToggleTerm('privacy')}/>
               <Text style={styles.termText}>(필수) 개인정보 처리방침 동의</Text>
               <View style={styles.termItemDetail}>
-                <Text style={styles.termItemDetailText}> 더보기 </Text>
+
+                <Pressable onPress={() => {
+                  navigation.navigate(authNavigations.TERM)
+                  handleDismissModal()
+                }}>
+                  <Text style={styles.termItemDetailText}> 더보기 </Text>
+                </Pressable>
+
               </View>
             </View>
 
@@ -191,7 +198,7 @@ const styles = StyleSheet.create({
   },
   footerContainer: {
     margin: 20,
-    justifyContent: 'flex-end', // Align the footer at the bottom
+    justifyContent: 'flex-end'
   },
   termContainer: {
     marginVertical: 10,
@@ -208,7 +215,7 @@ const styles = StyleSheet.create({
   },
   termInfoText: {
     fontSize: 13,
-    color: '#666',
+    color: colors.GRAY_500
   },
   termItemContainer: {
     marginTop: 10,
