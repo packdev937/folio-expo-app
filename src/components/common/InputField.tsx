@@ -1,6 +1,7 @@
-import React, {useRef} from 'react'
+import React, {ForwardedRef, forwardRef, useRef} from 'react'
 import {Dimensions, Pressable, StyleSheet, Text, TextInput, TextInputProps, View} from 'react-native'
 import {colors} from "../../constants";
+import {mergeRefs} from "../../utils";
 
 interface InputFieldProps extends TextInputProps {
   disabled?: boolean;
@@ -11,7 +12,10 @@ interface InputFieldProps extends TextInputProps {
 
 const deviceHeight = Dimensions.get('screen').height;
 
-function InputField({disabled, caption, error, touched, onPress, ...props}: InputFieldProps) {
+const InputField =
+  forwardRef(
+    ({disabled, caption, error, touched, onPress, ...props}: InputFieldProps,
+              ref?:ForwardedRef<TextInput>) => {
   const innerRef = useRef<TextInput | null>(null);
 
   // InputField는 TextInput 외에도 에러 메세지를 띄우는 Text가 같이 View로 묶여있음
@@ -32,7 +36,7 @@ function InputField({disabled, caption, error, touched, onPress, ...props}: Inpu
           touched && Boolean(error) && styles.inputError
         ]}>
           <TextInput
-            ref={innerRef}
+            ref={ref? mergeRefs(innerRef,ref) : innerRef}
             style={[
               styles.input,
               disabled && styles.disabled
@@ -52,7 +56,8 @@ function InputField({disabled, caption, error, touched, onPress, ...props}: Inpu
       </Pressable>
     </View>
   )
-}
+})
+
 
 const styles = StyleSheet.create({
   captionContainer: {

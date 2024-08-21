@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react'
-import {Pressable, SafeAreaView, StyleSheet, Text, View} from 'react-native'
+import {Pressable, SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native'
 import InputField from "../../components/common/InputField";
 import RNDateTimePicker from "@react-native-community/datetimepicker";
 import useForm from "../../hooks/useForm";
@@ -16,6 +16,7 @@ function SignupScreen({navigation}) {
     privacy: false,
     service: false,
   });
+  const nicknameRef = useRef<TextInput | null>(null);
 
   const handleToggleAll = () => {
     const reversedValue = !allAgreed;
@@ -80,13 +81,18 @@ function SignupScreen({navigation}) {
           placeholder={'teamfolio'}
           error={login.errors.id}
           touched={login.touched.id}
+          returnKeyType="next"
+          blurOnSubmit={false}
+          onSubmitEditing={() => nicknameRef.current?.focus()}
           {...login.getTextInputProps('id')}
         />
         <InputField
+          ref = {nicknameRef}
           caption={'닉네임'}
           placeholder={'홍길동'}
           error={login.errors.nickname}
           touched={login.touched.nickname}
+          returnKeyType="next"
           {...login.getTextInputProps('nickname')}
         />
         {showPicker && (<RNDateTimePicker
