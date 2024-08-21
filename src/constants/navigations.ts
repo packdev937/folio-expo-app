@@ -6,6 +6,26 @@ const authNavigations = {
   TERM: 'Term',
 } as const;
 
+const mainTabNavigations = {
+  HOME: 'Home',
+  QR_SCAN: 'QRScan',
+  DISCOVER: 'Discover',
+} as const;
+
+const feedNavigations = {
+  FEED_HOME : 'FeedHome',
+  FEED_DETAIL: 'FeedDetail',
+  CREATE_POST: 'CreatePost',
+  EDIT_POST: 'EditPost',
+} as const;
+
+const discoverNavigations = {
+  DISCOVER_HOME : 'DiscoverHome',
+} as const;
+
 export {
   authNavigations,
+  mainTabNavigations,
+  feedNavigations,
+  discoverNavigations,
 }

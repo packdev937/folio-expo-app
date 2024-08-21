@@ -1,11 +1,12 @@
 import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
-import AuthStackNavigator from "../stack/AuthStackNavigator";
+import AuthStackNavigator from "@/navigations/stack/AuthStackNavigator";
+import MainTabNavigator from "@/navigations/tab/MainTabNavigator";
 
 function RootNavigator() {
-  return (
-    <AuthStackNavigator/>
-  )
+  const isAuthenticated = true;
+  return <>{isAuthenticated ? <MainTabNavigator/> : <AuthStackNavigator/>}</>
+
 }
 
 const styles = StyleSheet.create({})

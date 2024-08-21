@@ -1,10 +1,10 @@
 import React from 'react'
 import {StyleSheet, View} from 'react-native'
-import {authNavigations} from "../../constants";
-import SignupScreen from "../../screens/auth/SignupScreen";
+import {authNavigations} from "@/constants";
+import SignupScreen from "@/screens/auth/SignupScreen";
 import {createStackNavigator} from "@react-navigation/stack";
 import {BottomSheetModalProvider} from "@gorhom/bottom-sheet";
-import TermOfServiceScreen from "../../screens/auth/TermOfServiceScreen";
+import TermOfServiceScreen from "@/screens/auth/TermOfServiceScreen";
 
 export type AuthStackParamList = {
   [authNavigations.AUTH_HOME]: undefined;

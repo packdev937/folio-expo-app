@@ -1,13 +1,13 @@
 import React, {useRef, useState} from 'react'
 import {Pressable, SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native'
-import InputField from "../../components/common/InputField";
+import InputField from "@/components/common/InputField";
 import RNDateTimePicker from "@react-native-community/datetimepicker";
-import useForm from "../../hooks/useForm";
-import {validateSignup} from "../../utils";
-import CustomButton from "../../components/common/CustomButton";
+import useForm from "@/hooks/useForm";
+import {validateSignup} from "@/utils";
+import CustomButton from "@/components/common/CustomButton";
 import {BottomSheetModal} from "@gorhom/bottom-sheet";
 import {Checkbox} from "expo-checkbox";
-import {authNavigations, colors} from "../../constants";
+import {authNavigations, colors} from "@/constants";
 
 function SignupScreen({navigation}) {
   const [allAgreed, setAllAgreed] = useState(false);

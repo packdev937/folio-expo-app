@@ -18,6 +18,9 @@ const colors = {
   PINK_700: '#C63B64',
   WHITE: '#FFF',
   BLACK: '#000',
+
+  PRIMARY: '#637AFF',
+  PRIMARY_LITE: '#2759FF'
 } as const;
 
 export {
