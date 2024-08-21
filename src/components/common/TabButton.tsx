@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import { TouchableOpacity, StyleSheet, Animated } from "react-native";
-import { colors } from "@/constants";
+import React, {useEffect, useRef} from "react";
+import {TouchableOpacity, StyleSheet, Animated} from "react-native";
+import {colors} from "@/constants";
 import Icons from "@/components/common/Icons";
 
 const TabButton = (props) => {
-  const { activeIcon, inActiveIcon, onPress, accessibilityState } = props;
+  const {activeIcon, inActiveIcon, onPress, accessibilityState, size, color} = props;
   const focused = accessibilityState.selected;
 
   const scale = useRef(new Animated.Value(1)).current;
@@ -49,16 +49,17 @@ const TabButton = (props) => {
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={1}
-      style={[styles.container, { top: 0 }]}
+      style={[styles.container, {top: 0}]}
     >
       <Animated.View
         style={{
-          transform: [{ scale }, { rotate: rotateInterpolate }],
+          transform: [{scale}, {rotate: rotateInterpolate}],
         }}
       >
         <Icons
+          size={size}
           name={focused ? activeIcon : inActiveIcon}
-          color={focused ? colors.PRIMARY : colors.PRIMARY_LITE}
+          color={color ? color : focused ? colors.PRIMARY : colors.PRIMARY_LITE}
         />
       </Animated.View>
     </TouchableOpacity>
