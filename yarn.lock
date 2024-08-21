@@ -776,6 +776,13 @@
     "@babel/helper-validator-identifier" "^7.24.7"
     to-fast-properties "^2.0.0"
 
+"@dev-plugins/react-query@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@dev-plugins/react-query/-/react-query-0.0.7.tgz#143ad52782a60de8e2acd9f2103f4112de7e96f4"
+  integrity sha512-A54YRUEwSHjEl4OrnP9QDwbgx4XOzCIreqYfCzPB0E4EV5U7ykCdxsm6gNhfy5EQfNvkqzrSRhO8GsR8fCfxdw==
+  dependencies:
+    flatted "^3.2.9"
+
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
   resolved "https://registry.npmjs.org/@egjs/hammerjs/-/hammerjs-2.0.17.tgz"
@@ -1724,6 +1731,18 @@
   integrity sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==
   dependencies:
     "@sinonjs/commons" "^3.0.0"
+
+"@tanstack/query-core@5.52.0":
+  version "5.52.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.52.0.tgz#44070b2d6eb58c3a5ce2788471d842e932294a87"
+  integrity sha512-U1DOEgltjUwalN6uWYTewSnA14b+tE7lSylOiASKCAO61ENJeCq9VVD/TXHA6O5u9+6v5+UgGYBSccTKDoyMqw==
+
+"@tanstack/react-query@^5.52.0":
+  version "5.52.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-5.52.0.tgz#671478798f1873983807cf6f62b140c817b3cc9f"
+  integrity sha512-T8tLZdPEopSD3A1EBZ/sq7WkI76pKLKKiT82F486K8wf26EPgYCdeiSnJfuayssdQjWwLQMQVl/ROUBNmlWgCQ==
+  dependencies:
+    "@tanstack/query-core" "5.52.0"
 
 "@types/hammerjs@^2.0.36":
   version "2.0.45"
@@ -3244,6 +3263,11 @@ find-yarn-workspace-root@~2.0.0:
   integrity sha512-1IMnbjt4KzsQfnhnzNd8wUEgXZ44IzZaZmnLYx7D5FZlaHt2gW20Cri8Q+E/t5tIj4+epTBub+2Zxu/vNILzqQ==
   dependencies:
     micromatch "^4.0.2"
+
+flatted@^3.2.9:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.3.1.tgz#21db470729a6734d4997002f439cb308987f567a"
+  integrity sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==
 
 flow-enums-runtime@^0.0.6:
   version "0.0.6"

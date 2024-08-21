@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from "react";
 import {TouchableOpacity, StyleSheet, Animated} from "react-native";
 import {colors} from "@/constants";
-import Icons from "@/components/common/Icons";
+import Icon from "@/components/common/Icon";
 
 const TabButton = (props) => {
   const {activeIcon, inActiveIcon, onPress, accessibilityState, size, color} = props;
@@ -56,7 +56,7 @@ const TabButton = (props) => {
           transform: [{scale}, {rotate: rotateInterpolate}],
         }}
       >
-        <Icons
+        <Icon
           size={size}
           name={focused ? activeIcon : inActiveIcon}
           color={color ? color : focused ? colors.PRIMARY : colors.PRIMARY_LITE}

@@ -2,14 +2,16 @@ import React from 'react'
 import {StyleSheet, View} from 'react-native'
 import {colors, mainTabNavigations} from "@/constants";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import FeedStackNavigator from "@/navigations/stack/FeedStackNavigator";
+import {NavigatorScreenParams} from "@react-navigation/native";
+import FeedStackNavigator, {FeedStackParamList} from "@/navigations/stack/FeedStackNavigator";
 import QrScanScreen from "@/screens/qr/QrScanScreen";
 import DiscoverStackNavigator from "@/navigations/stack/DiscoverStackNavigator";
 import TabButton from "@/components/common/TabButton";
 
 
 export type MainTabParamList = {
-  [mainTabNavigations.HOME]: undefined;
+  // MainTabNavigator에서 FeedStackNavigator로 올바른 파라미터 타입을 전달할 수 있습니다.
+  [mainTabNavigations.HOME]: NavigatorScreenParams<FeedStackParamList>;
   [mainTabNavigations.QR_SCAN]: undefined;
   [mainTabNavigations.DISCOVER]: undefined;
 }
@@ -27,10 +29,13 @@ function MainTabNavigator() {
           position: 'absolute',
           margin: 16,
           borderRadius: 16,
+          shadowColor: colors.BLACK,
+          shadowOpacity: 0.1,
           justifyContent: 'center',
           alignItems: 'center',
         }
       }}>
+      {/*Home을 누르면 항상 Home의 첫번째 화면으로 되돌아가는 기능도 있어야될듯*/}
       <Tab.Screen
         name={mainTabNavigations.HOME}
         component={FeedStackNavigator}
