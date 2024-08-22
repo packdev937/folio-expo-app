@@ -1,6 +1,5 @@
-type AccessRange = {
-  [key in '전체 공개' | '친구 공개' | '나만 보기']: string;
-}
+type AccessRange = Record<'PUBLIC' | 'FRIENDS' | 'PRIVATE', string>;
+
 
 interface Feed {
   id: number,

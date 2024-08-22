@@ -7,6 +7,8 @@ import FeedList from "@/components/feed/FeedList";
 interface FeedHomeScreenProps {
 }
 
+const ICON_SIZE = 28;
+
 function FeedHomeScreen({}: FeedHomeScreenProps) {
   return (
     <SafeAreaView style={styles.container}>
@@ -19,8 +21,8 @@ function FeedHomeScreen({}: FeedHomeScreenProps) {
           }}> Folio </Text>
         </View>
         <View style={styles.buttonContainer}>
-          <Icons name={'code-slash-sharp'} size={30}/>
-          <Icons name={'link'} size={30}/>
+          <Icons name={'code-slash-sharp'} size={ICON_SIZE}/>
+          <Icons name={'link'} size={ICON_SIZE}/>
         </View>
       </View>
       <View style={styles.profileContainer}>
