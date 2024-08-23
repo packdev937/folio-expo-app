@@ -41,7 +41,6 @@ function FeedDetailScreen({route}: FeedDetailScreenProps) {
           <Text style={styles.dateText}>{feed.createdAt}</Text>
           {/*내 피드가 아니면 DronDown은 뜨지 않음*/}
           <View style={styles.dropdownContainer}>
-            {/*드롭 다운 중간 옵션 선택 안되는 문제*/}
             <DropDown
               initialValue={feed.accessRange}
               options={accessOptions}
@@ -120,9 +119,6 @@ const styles = StyleSheet.create({
     top: 0,
     right : 0,
     width: 110,
-    borderWidth: 1,
-    borderColor: colors.GRAY_200,
-
   },
 })
 
