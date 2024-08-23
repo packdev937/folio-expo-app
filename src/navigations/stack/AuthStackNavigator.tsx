@@ -5,6 +5,7 @@ import SignupScreen from "@/screens/auth/SignupScreen";
 import {createStackNavigator} from "@react-navigation/stack";
 import {BottomSheetModalProvider} from "@gorhom/bottom-sheet";
 import TermOfServiceScreen from "@/screens/auth/TermOfServiceScreen";
+import AuthHomeScreen from "@/screens/auth/AuthHomeScreen";
 
 export type AuthStackParamList = {
   [authNavigations.AUTH_HOME]: undefined;
@@ -19,9 +20,18 @@ function AuthStackNavigator() {
     <BottomSheetModalProvider>
       <Stack.Navigator>
         <Stack.Screen
+          name={authNavigations.AUTH_HOME}
+          component={AuthHomeScreen}
+          options={{
+            headerShown: false,
+            headerTitle: ''
+          }}
+        />
+        <Stack.Screen
           name={authNavigations.SIGNUP}
           component={SignupScreen} options={{
-          headerTitle: '회원가입'
+          headerTitle: '회원가입',
+          headerBackTitleVisible: false
         }}
         />
         <Stack.Screen

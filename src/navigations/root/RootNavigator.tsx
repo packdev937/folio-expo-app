@@ -4,7 +4,7 @@ import AuthStackNavigator from "@/navigations/stack/AuthStackNavigator";
 import MainTabNavigator from "@/navigations/tab/MainTabNavigator";
 
 function RootNavigator() {
-  const isAuthenticated = true;
+  const isAuthenticated = false;
   return <>{isAuthenticated ? <MainTabNavigator/> : <AuthStackNavigator/>}</>
 
 }
