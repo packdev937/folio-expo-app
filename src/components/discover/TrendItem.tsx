@@ -7,10 +7,12 @@ interface TrendItemProps {
   trend: TrendResponse
 }
 
+const deviceHeight = Dimensions.get('screen').width
+
 function TrendItem({trend}: TrendItemProps) {
   return (
     <>
-      <View style={styles.userInformationContainer}>
+      <View style={styles.userDetailContainer}>
         <Image
           style={styles.profileImage}
           source={{
@@ -36,7 +38,7 @@ function TrendItem({trend}: TrendItemProps) {
 }
 
 const styles = StyleSheet.create({
-  userInformationContainer: {
+  userDetailContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     margin: 10,
@@ -60,8 +62,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   imageContainer: {
-    width: Dimensions.get('screen').width / 2 + 75,
-    height: Dimensions.get('screen').width / 2 + 75,
+    width: deviceHeight / 2 + 75,
+    height: deviceHeight / 2 + 75,
   },
   image: {
     width: '100%',

@@ -3,10 +3,8 @@ import {FlatList, StyleSheet, View} from 'react-native'
 import useGetInfiniteTrends from "@/hooks/queries/useGetInfiniteTrends";
 import TrendItem from "@/components/discover/TrendItem";
 
-interface TrendListProps {
-}
 
-function TrendList({}: TrendListProps) {
+function TrendList() {
   const trends = useGetInfiniteTrends()
 
   return <FlatList
@@ -15,7 +13,7 @@ function TrendList({}: TrendListProps) {
       <TrendItem trend={item}/>
   }
     keyExtractor={item => String(item.trendId)}
-    numColumns={1} // 열 하나에 두 개의 데이터를 표시
+    numColumns={1}
   />
 }
 

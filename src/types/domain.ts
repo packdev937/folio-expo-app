@@ -13,3 +13,11 @@ interface Trend {
   userNickname: string,
   userProfileImageUri: string,
 }
+
+interface Story {
+  storyId: number,
+  storyImageUri: string,
+  userId: number,
+  userNickname: string,
+  userProfileImageUri: string,
+}
