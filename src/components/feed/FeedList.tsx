@@ -1,10 +1,10 @@
 import React from 'react'
 import {FlatList, StyleSheet, View} from 'react-native'
-import useGetInfinitePosts from "@/hooks/queries/useGetInfinitePosts";
+import useGetInfiniteFeeds from "@/hooks/queries/useGetInfiniteFeeds";
 import FeedItem from "@/components/feed/FeedItem";
 
 function FeedList() {
-  const feeds = useGetInfinitePosts()
+  const feeds = useGetInfiniteFeeds()
 
   return <FlatList
     data={feeds.flat()}

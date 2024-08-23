@@ -1,4 +1,4 @@
-export default function useGetInfinitePosts() {
+export default function useGetInfiniteFeeds() {
   // 임의로 피드 데이터를 생성하여 반환합니다.
   return [
     { id: 1, imageUri: 'https://www.harpersbazaar.co.kr/resources_old/online/org_online_image/86c91d7b-3501-4c8e-b6c7-5e301721ae1e.jpg' },

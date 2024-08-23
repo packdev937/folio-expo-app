@@ -1,5 +1,7 @@
 type FeedResponse = Feed
+type TrendResponse = Trend
 
 export type {
-  FeedResponse
+  FeedResponse,
+  TrendResponse
 }
