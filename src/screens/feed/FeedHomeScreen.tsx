@@ -4,12 +4,9 @@ import {colors} from "@/constants";
 import Icons from "@/components/common/Icon";
 import FeedList from "@/components/feed/FeedList";
 
-interface FeedHomeScreenProps {
-}
-
 const ICON_SIZE = 28;
 
-function FeedHomeScreen({}: FeedHomeScreenProps) {
+function FeedHomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>

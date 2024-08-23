@@ -8,7 +8,7 @@ import Icon from "@/components/common/Icon";
 
 export type FeedStackParamList = {
   [feedNavigations.FEED_HOME]: undefined;
-  [feedNavigations.FEED_DETAIL]: {id: number};
+  [feedNavigations.FEED_DETAIL]: {id: number, imageUri: string};
   [feedNavigations.CREATE_POST]: undefined;
   [feedNavigations.EDIT_POST]: undefined;
 }

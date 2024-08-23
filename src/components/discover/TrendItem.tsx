@@ -1,7 +1,11 @@
 import React from 'react'
 import {Dimensions, Image, Pressable, StyleSheet, Text, View} from 'react-native'
 import {TrendResponse} from "@/api";
-import {colors} from "@/constants";
+import {colors, discoverNavigations} from "@/constants";
+import {useNavigation} from "@react-navigation/native";
+import {StackNavigationProp} from "@react-navigation/stack";
+import {FeedStackParamList} from "@/navigations/stack/FeedStackNavigator";
+import {DiscoverStackParamList} from "@/navigations/stack/DiscoverStackNavigator";
 
 interface TrendItemProps {
   trend: TrendResponse
@@ -9,10 +13,18 @@ interface TrendItemProps {
 
 const deviceHeight = Dimensions.get('screen').width
 
+type Navigation = StackNavigationProp<DiscoverStackParamList>;
+
 function TrendItem({trend}: TrendItemProps) {
+  const navigation = useNavigation<Navigation>()
+
+  const handlePressTrend = () => {
+    navigation.navigate(discoverNavigations.USER_HOME, {userId: trend.userId})
+  }
+
   return (
     <>
-      <View style={styles.userDetailContainer}>
+      <Pressable style={styles.userDetailContainer} onPress={handlePressTrend}>
         <Image
           style={styles.profileImage}
           source={{
@@ -20,8 +32,8 @@ function TrendItem({trend}: TrendItemProps) {
           }}
         />
         <Text style={styles.nicknameText}>{trend.userNickname}</Text>
-      </View>
-      <Pressable style={styles.container}>
+      </Pressable>
+      <View style={styles.container} >
         {trend.trendImageUri.length > 0 && (
           <View key={trend.trendId} style={styles.imageContainer}>
             <Image
@@ -32,7 +44,7 @@ function TrendItem({trend}: TrendItemProps) {
             />
           </View>
         )}
-      </Pressable>
+      </View>
     </>
   )
 }

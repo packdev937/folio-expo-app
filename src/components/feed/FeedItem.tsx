@@ -1,23 +1,26 @@
 import React from 'react'
 import {Dimensions, Image, Pressable, StyleSheet, View} from 'react-native'
 import {FeedResponse} from "@/api";
-import {feedNavigations} from "@/constants";
+import {colors, feedNavigations} from "@/constants";
 import {StackNavigationProp} from "@react-navigation/stack";
 import {FeedStackParamList} from "@/navigations/stack/FeedStackNavigator";
 import {useNavigation} from "@react-navigation/native";
+import Icon from "@/components/common/Icon";
 
 interface FeedItemProps {
-  feed: FeedResponse
+  feed: FeedResponse,
+  editable?: boolean
 }
 
 type Navigation = StackNavigationProp<FeedStackParamList>;
 
-function FeedItem({feed}: FeedItemProps) {
+function FeedItem({feed, editable}: FeedItemProps) {
   const navigation = useNavigation<Navigation>()
 
   const handlePressedFeed = () => {
-    navigation.navigate(feedNavigations.FEED_DETAIL, {id: feed.id})
+    navigation.navigate(feedNavigations.FEED_DETAIL, {id: feed.id, imageUri: feed.imageUri})
   }
+
   return (
     <Pressable style={styles.container} onPress={handlePressedFeed}>
       <View>
@@ -29,6 +32,12 @@ function FeedItem({feed}: FeedItemProps) {
                 uri: feed.imageUri
               }}
             />
+            {editable && (
+              // 겉의 Pressable과 별도로 동작해야 함
+              <Pressable style={styles.optionContainer}>
+                <Icon name={'ellipsis-vertical'} size={28} color={colors.WHITE}/>
+              </Pressable>
+            )}
           </View>
         )}
       </View>
@@ -50,6 +59,11 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
+  },
+  optionContainer: {
+    position: 'absolute',
+    right: 5,
+    top: 10,
   }
 })
 

@@ -8,11 +8,15 @@ interface StoryItemProps {
 }
 
 function StoryItem({story}: StoryItemProps) {
-  const [isViewed, setIsViewed] = useState(false); // 스토리 본 여부를 관리하는 상태
-
+  const [isViewed, setIsViewed] = useState(story.isViewed); // 초기 상태를 서버에서 가져온 정보로 설정
   const handlePress = () => {
     setIsViewed(true); // 스토리를 본 상태로 변경
-    // 여기에 스토리 뷰어로 이동하는 코드 추가 가능
+    // try {
+    //   await markStoryAsViewed(story.storyId); // 서버에 스토리 조회를 기록
+    //   setIsViewed(true); // 서버에 기록한 후 로컬 상태를 업데이트
+    // } catch (error) {
+    //   console.error("Failed to mark story as viewed:", error);
+    // }
   };
 
   return (

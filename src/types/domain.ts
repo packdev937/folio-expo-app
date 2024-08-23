@@ -19,5 +19,5 @@ interface Story {
   storyImageUri: string,
   userId: number,
   userNickname: string,
-  userProfileImageUri: string,
+  isViewed: boolean,
 }

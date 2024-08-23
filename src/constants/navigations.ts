@@ -21,6 +21,7 @@ const feedNavigations = {
 
 const discoverNavigations = {
   DISCOVER_HOME : 'DiscoverHome',
+  USER_HOME : 'UserHome',
 } as const;
 
 export {

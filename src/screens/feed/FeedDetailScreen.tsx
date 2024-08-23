@@ -20,7 +20,7 @@ const accessOptions: AccessRange = {
 };
 
 function FeedDetailScreen({route}: FeedDetailScreenProps) {
-  const {id} = route.params
+  const {id, imageUri} = route.params
   const feed = useGetFeed(id)
 
   return (
@@ -31,7 +31,7 @@ function FeedDetailScreen({route}: FeedDetailScreenProps) {
       <View style={styles.imageContainer}>
         <Image style={styles.image}
                source={{
-                 uri: feed.imageUri
+                 uri: imageUri
                }}
                resizeMode="cover" // 원본 비율을 유지
         />
@@ -81,8 +81,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  informationContainer: {
-  },
+  informationContainer: {},
   informationHeaderContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
   dropdownContainer: {
     position: 'absolute', // 드롭다운을 별도의 레이어로 표시
     top: 0,
-    right : 0,
+    right: 0,
     width: 110,
   },
 })
