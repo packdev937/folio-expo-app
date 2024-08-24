@@ -16,8 +16,11 @@ const colors = {
   PINK_400: '#EC87A5',
   PINK_500: '#BF5C79',
   PINK_700: '#C63B64',
+  PINK_1000: '#e50854',
+  PINK:'#FF00FF',
   WHITE: '#FFF',
   BLACK: '#000',
+  ORANGE: '#ff8800',
 
   PRIMARY: '#637AFF',
   PRIMARY_LITE: '#2759FF'

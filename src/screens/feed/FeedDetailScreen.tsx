@@ -50,7 +50,7 @@ function FeedDetailScreen({route}: FeedDetailScreenProps) {
         {/*디자인을 수정할 필요가 있을 듯*/}
         <View style={styles.taggedUserContainer}>
           {feed.taggedUsers.map((user, index) => (
-            <View style={styles.taggedUserBox}>
+            <View key={user.nickname} style={styles.taggedUserBox}>
               <Image style={styles.taggerUserImage}
                      source={{uri: user.profileUri}}/>
               <Text style={styles.taggedUserText}>@{user.nickname}</Text>
@@ -66,7 +66,7 @@ function FeedDetailScreen({route}: FeedDetailScreenProps) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.WHITE
+    backgroundColor: colors.WHITE,
   },
   headerContainer: {
     height: 30,
@@ -75,7 +75,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
   },
   imageContainer: {
-    height: Dimensions.get('screen').width,
+    height: Dimensions.get('screen').height / 2 + 35,
+    width: Dimensions.get('screen').width - 35,
+    marginHorizontal: 10,
   },
   image: {
     width: '100%',

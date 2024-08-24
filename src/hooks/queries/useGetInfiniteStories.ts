@@ -4,28 +4,28 @@ export default function useGetInfiniteStories() {
   return [
     {
       storyId: 1,
-      storyImageUri: 'https://www.harpersbazaar.co.kr/resources_old/online/org_online_image/86c91d7b-3501-4c8e-b6c7-5e301721ae1e.jpg',
+      storyImageUri: 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FSCwzs%2FbtstbdcTogV%2Fdjk7dOUl3XaHOCAG8aCin0%2Fimg.jpg',
       userId: 1,
       userNickname: 'packdev937',
       isViewed: false,
     },
     {
       storyId: 2,
-      storyImageUri: 'https://image.fmkorea.com/files/attach/new3/20230916/486616/638012495/6186131518/8c56b45f9fc499b962e5e6bd277d2cdb.jpeg',
+      storyImageUri: 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcOVdsI%2FbtsteBxOIvw%2FPLGKMpigttYfLTfuKwMUV0%2Fimg.jpg',
       userId: 1,
       userNickname: 'packdev937',
       isViewed: false,
     },
     {
       storyId: 3,
-      storyImageUri: 'https://cdn.theden.co.kr/news/photo/202306/1540_6000_2111.png',
+      storyImageUri: 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FeP82F1%2FbtssYTmCEav%2Fgh9aLlZl19Il2gSV20dMYk%2Fimg.jpg',
       userId: 2,
       userNickname: 'yeddin',
       isViewed: false,
     },
     {
       storyId: 4,
-      storyImageUri: 'https://images.khan.co.kr/article/2022/07/01/l_2022070102000040600005322.jpg',
+      storyImageUri: 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FczJaas%2FbtsteTZtbuk%2FeR2UthKU0enKhWLpq4GVYK%2Fimg.jpg',
       userId: 2,
       userNickname: 'yeddin',
       isViewed: false,

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Image, Pressable, StyleSheet, Text, View, Modal, Dimensions} from 'react-native';
 import {StoryResponse} from "@/api";
 import {colors} from "@/constants";
+import {LinearGradient} from "expo-linear-gradient";
 
 interface StoryItemProps {
   story: StoryResponse;
@@ -16,11 +17,11 @@ function StoryItem({story, onNextStory}: StoryItemProps) {
     setIsViewed(true); // 스토리를 본 상태로 변경
     setIsModalVisible(true); // 모달을 띄움
     // try {
-//   await markStoryAsViewed(story.storyId); // 서버에 스토리 조회를 기록
-//   setIsViewed(true); // 서버에 기록한 후 로컬 상태를 업데이트
-// } catch (error) {
-//   console.error("Failed to mark story as viewed:", error);
-// }
+    //   await markStoryAsViewed(story.storyId); // 서버에 스토리 조회를 기록
+    //   setIsViewed(true); // 서버에 기록한 후 로컬 상태를 업데이트
+    // } catch (error) {
+    //   console.error("Failed to mark story as viewed:", error);
+    // }
   };
 
   const handleCloseModal = () => {
@@ -42,14 +43,24 @@ function StoryItem({story, onNextStory}: StoryItemProps) {
   return (
     <>
       <Pressable style={styles.container} onPress={handlePress}>
-        <View style={isViewed ? styles.viewedBorder : styles.unviewedBorder}>
-          <Image
-            style={styles.image}
-            source={{
-              uri: story.storyImageUri,
-            }}
-          />
-        </View>
+
+        <LinearGradient
+          colors={
+            isViewed
+              ? [colors.GRAY_300, colors.GRAY_300] // Gray for viewed story
+              : [colors.PINK, colors.ORANGE] // Pink gradient for unviewed story
+          }
+          style={styles.gradientBorder}
+        >
+          <View>
+            <Image
+              style={styles.image}
+              source={{
+                uri: story.storyImageUri,
+              }}
+            />
+          </View>
+        </LinearGradient>
         <View style={styles.userDetailContainer}>
           <Text style={styles.userNicknameText}>@{story.userNickname}</Text>
         </View>
@@ -93,17 +104,9 @@ const styles = StyleSheet.create({
   userNicknameText: {
     fontSize: 12,
   },
-  unviewedBorder: {
-    borderColor: colors.PINK_400, // 안 본 스토리의 보더 색상
-    borderWidth: 3,
-    borderRadius: 10,
-    padding: 2,
-  },
-  viewedBorder: {
-    borderColor: colors.GRAY_300, // 본 스토리의 보더 색상
-    borderWidth: 2,
-    borderRadius: 10,
-    padding: 2,
+  gradientBorder: {
+    borderRadius: 12,
+    padding: 3, // Controls the border width
   },
   modalContainer: {
     flex: 1,
@@ -120,3 +123,15 @@ const styles = StyleSheet.create({
 
 export default StoryItem;
 
+// unviewedBorder: {
+//   borderColor: colors.PINK_1000, // 안 본 스토리의 보더 색상
+//   borderWidth: 3,
+//   borderRadius: 10,
+//   padding: 2,
+// },
+// viewedBorder: {
+//   borderColor: colors.GRAY_300, // 본 스토리의 보더 색상
+//   borderWidth: 2,
+//   borderRadius: 10,
+//   padding: 2,
+// },

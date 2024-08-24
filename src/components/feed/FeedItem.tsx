@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: Dimensions.get('screen').width / 2 - 15,
-    height: Dimensions.get('screen').width / 2 - 15,
+    height: Dimensions.get('screen').width / 2 + 30,
   },
   image: {
     width: '100%',

@@ -9,7 +9,7 @@ export default function useGetInfiniteFeeds(userId?: number) {
       id: 2,
       imageUri: 'https://image.fmkorea.com/files/attach/new3/20230916/486616/638012495/6186131518/8c56b45f9fc499b962e5e6bd277d2cdb.jpeg'
     },
-    {id: 3, imageUri: 'https://cdn.theden.co.kr/news/photo/202306/1540_6000_2111.png'},
+    {id: 3, imageUri: 'https://xen-api.linkareer.com/attachments/75144'},
     {id: 4, imageUri: 'https://images.khan.co.kr/article/2022/07/01/l_2022070102000040600005322.jpg'},
     {id: 5, imageUri: 'https://i.pinimg.com/236x/40/62/1e/40621edbace8925c63ef4757e8f48f59.jpg'},
     {

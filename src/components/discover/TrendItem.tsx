@@ -11,7 +11,7 @@ interface TrendItemProps {
   trend: TrendResponse
 }
 
-const deviceHeight = Dimensions.get('screen').width
+const deviceHeight = Dimensions.get('screen').height
 
 type Navigation = StackNavigationProp<DiscoverStackParamList>;
 
@@ -74,8 +74,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   imageContainer: {
-    width: deviceHeight / 2 + 75,
-    height: deviceHeight / 2 + 75,
+    height: deviceHeight / 2,
+    width: deviceHeight / 2 - 150,
   },
   image: {
     width: '100%',
