@@ -2,8 +2,11 @@ type AccessRange = Record<'PUBLIC' | 'FRIENDS' | 'PRIVATE', string>;
 
 
 interface Feed {
-  id: number,
-  imageUri: string,
+  feedId: number;
+  photoImageUrl: string;
+  accessRange: string;
+  taggedUsers: string[];
+  createdAt: string; // ISO 문자열 형태로 받을 경우
 }
 
 interface Trend {

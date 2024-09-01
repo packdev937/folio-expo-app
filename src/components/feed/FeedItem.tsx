@@ -18,18 +18,18 @@ function FeedItem({feed, editable}: FeedItemProps) {
   const navigation = useNavigation<Navigation>()
 
   const handlePressedFeed = () => {
-    navigation.navigate(feedNavigations.FEED_DETAIL, {id: feed.id, imageUri: feed.imageUri})
+    navigation.navigate(feedNavigations.FEED_DETAIL, {id: feed.feedId, imageUri: feed.photoImageUrl})
   }
 
   return (
     <Pressable style={styles.container} onPress={handlePressedFeed}>
       <View>
-        {feed.imageUri.length > 0 && (
-          <View key={feed.id} style={styles.imageContainer}>
+        {feed.photoImageUrl.length > 0 && (
+          <View key={feed.feedId} style={styles.imageContainer}>
             <Image
               style={styles.image}
               source={{
-                uri: feed.imageUri
+                uri: feed.photoImageUrl
               }}
             />
             {editable && (
