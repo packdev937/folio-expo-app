@@ -2,9 +2,9 @@ const queryKeys = {
   AUTH: 'auth',
   GET_ACCESS_TOKEN: 'getAccessToken',
   GET_PROFILE: 'getProfile',
-  POST: 'post',
-  GET_POST: 'getPost',
-  GET_POSTS: 'getPosts',
+  FEED: 'feed',
+  GET_FEED_DETAIL: 'getFeedDetail',
+  GET_FEEDS: 'getFeeds',
 } as const;
 
 const storageKeys = {
