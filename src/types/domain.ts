@@ -21,3 +21,10 @@ interface Story {
   userNickname: string,
   isViewed: boolean,
 }
+
+interface Profile {
+  id: number;
+  nickname: string | null;
+  profileImageUri: string | null;
+  loginType: 'kakao' | 'apple';
+}

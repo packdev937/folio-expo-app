@@ -19,6 +19,9 @@ function DiscoverHomeScreen({}: DiscoverHomeScreenProps) {
           <Text style={styles.trendCaptionText}>트렌드 모아보기</Text>
           <Text style={styles.trendDetailText}>현재 인기 있는 인생 네컷 사진을 모아보세요.</Text>
         </View>
+        <View style={styles.filterContainer}>
+
+        </View>
         <View>
           <TrendList/>
         </View>
@@ -43,6 +46,10 @@ const styles = StyleSheet.create({
     color: colors.BLACK,
     fontSize: 18,
     fontWeight: '600',
+  },
+  filterContainer: {
+    flexDirection: 'row',
+    marginHorizontal: 10,
   },
   trendContainer: {
     flex: 1,
