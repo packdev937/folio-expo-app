@@ -5,6 +5,7 @@ const queryKeys = {
   FEED: 'feed',
   GET_FEED_DETAIL: 'getFeedDetail',
   GET_FEEDS: 'getFeeds',
+  TREND: 'trend',
 } as const;
 
 const storageKeys = {
