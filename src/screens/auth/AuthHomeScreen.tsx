@@ -1,10 +1,26 @@
 import React, {useEffect, useRef} from 'react';
-import {SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Pressable, Animated} from 'react-native';
-import {authNavigations} from "@/constants";
+import {ActivityIndicator, Animated, Pressable, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import * as AppleAuthentication from 'expo-apple-authentication';
+import {AppleAuthenticationScope} from 'expo-apple-authentication';
 import Icon from "@/components/common/Icon";
+import {authNavigations} from "@/constants";
+import {useFonts} from "expo-font";
 
 
 function AuthHomeScreen({navigation}) {
+  // todo : 폰트 로딩 상태를 커스텀 훅으로 리팩토링
+  const [isFontLoaded] = useFonts({
+    Pretendard: require('@/../assets/fonts/Pretendard-Medium.otf'),
+  })
+
+  if(!isFontLoaded) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
+
   const fadeAnim = useRef(new Animated.Value(0)).current; // 초기 opacity 값
 
   useEffect(() => {
@@ -31,15 +47,40 @@ function AuthHomeScreen({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        {/* Folio 텍스트에 애니메이션과 스타일 적용 */}
-        <Animated.Text style={[styles.title, { opacity: fadeAnim }]}>
+        <Animated.Text style={[styles.title, {opacity: fadeAnim}]}>
           Folio
         </Animated.Text>
         <Text style={styles.subtitle}>모두의 인생 네컷 서비스</Text>
         <Text style={styles.description}>폴리오와 함께 일상을 공유해보세요.</Text>
-        <Pressable style={styles.appleButton} onPress={() => navigation.navigate(authNavigations.SIGNUP)}>
-          <Icon name={'logo-apple'} size={24} color={'#FFFFFF'} />
-          <Text style={styles.appleButtonText}>Apple로 로그인</Text>
+      </View>
+      <View style = {styles.buttonContainer}>
+        <Pressable
+          style={styles.button}
+          onPress={async () => {
+            try {
+              const credential = await AppleAuthentication.signInAsync({
+                requestedScopes: [
+                  AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
+                  AppleAuthenticationScope.EMAIL,
+                ],
+              });
+              // crendential을 서버로 전송하여 로그인 여부 확인
+
+              const isRegistered = true;
+              if(isRegistered) {
+                navigation.navigate(authNavigations.SIGNUP);
+              }
+            } catch (exception) {
+              if (exception.code === 'ERR_REQUEST_CANCELED') {
+                console.log('Apple 로그인이 취소되었습니다.');
+              } else {
+
+              }
+            }
+          }}
+        >
+          <Icon name={'logo-apple'} size={18} color={'#FFFFFF'}/>
+          <Text style={styles.buttonText}>Apple로 시작하기</Text>
         </Pressable>
       </View>
     </SafeAreaView>
@@ -76,21 +117,23 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     textAlign: 'center',
   },
-  appleButton: {
+  buttonContainer: {
+
+  },
+  button: {
     backgroundColor: '#000000',
-    width: 250,
-    paddingVertical: 12,
-    paddingHorizontal: 12,
+    width: 350,
+    height: 55,
     gap: 10,
-    borderRadius: 30,
+    borderRadius: 5,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  appleButtonText: {
+  buttonText: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: 'Pretendard'
   },
 });
 

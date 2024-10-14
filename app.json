@@ -45,6 +45,12 @@
           "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
           "recordAudioAndroid": true
         }
+      ],
+      "expo-apple-authentication",
+      ["expo-font",
+        {
+          "fonts" : ["./assets/fonts/Pretendard-Medium.otf"]
+        }
       ]
     ]
   }
